@@ -1,0 +1,20 @@
+.site-footer {
+  padding-bottom: $spacing-unit * 2;
+
+  .wrapper {
+    text-align: center;
+
+    p {
+      border-top: solid 1px $grey-color-dark;
+      padding-top: $spacing-unit / 2;
+    }
+
+    a {
+      text-transform: lowercase;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+}

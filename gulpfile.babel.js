@@ -13,8 +13,9 @@ import webpack from 'webpack-stream';
 const reload = browserSync.reload;
 
 /**
-* Compile and minify scss into both the _site/css (for live injecting)
-* and site directories (for deploying)
+* Compile and minify scss into both the _site/css
+* (for live injecting) and site directories
+* (for deploying).
 */
 gulp.task('sass', () => {
   return gulp.src('_sass/main.scss')
@@ -34,7 +35,9 @@ gulp.task('sass', () => {
 });
 
 /**
-* Bundle, transform (ES2015) and minify JS
+* Bundle, transform (ES2015) and minify JS.
+* Webpack's config file is being used inline
+* because it's fairly simple for now.
 */
 gulp.task('uglify', () => {
   return gulp.src('_js/main.js')
@@ -61,7 +64,7 @@ gulp.task('uglify', () => {
 });
 
 /**
-* Minify images
+* Minify images.
 */
 gulp.task('images', () => {
   return gulp.src('_assets/*')
@@ -73,7 +76,8 @@ gulp.task('images', () => {
 });
 
 /**
-* Build the Jekyll Site
+* Build the Jekyll site.
+* Include draft posts during development.
 */
 gulp.task('jekyll-build', done => {
   return cp.spawn('jekyll', ['build', '--drafts'], {stdio: 'inherit'})
@@ -81,14 +85,14 @@ gulp.task('jekyll-build', done => {
 });
 
 /**
-* Rebuild Jekyll & do page reload
+* Rebuild Jekyll and reload page.
 */
 gulp.task('jekyll-rebuild', ['jekyll-build'], () => {
   reload();
 });
 
 /**
-* Wait for jekyll-build, then launch the server
+* Wait for jekyll-build, then launch the server.
 */
 gulp.task('browser-sync', ['sass', 'uglify', 'jekyll-build'], function() {
   browserSync({
@@ -116,7 +120,7 @@ gulp.task('browser-sync', ['sass', 'uglify', 'jekyll-build'], function() {
 });
 
 /**
-* Watch files for changes
+* Watch files for changes.
 */
 gulp.task('watch', () => {
 
@@ -129,18 +133,20 @@ gulp.task('watch', () => {
   // Watch assets
   gulp.watch(['_assets/**/*'], ['images']);
 
-  // Watch html/md files for changes, run jekyll & reload BrowserSync
+  // Watch templates/pages/posts, then rebuild Jekyll site
   gulp.watch(['*.html', '_includes/**/*', '_layouts/**/*', 'posts/**/*', 'assets/**/*'], ['jekyll-rebuild']);
 });
 
 /**
-* Default task
+* Make 'gulp watch' the default task
+* for extra laziness.
 */
 gulp.task('default', ['browser-sync', 'watch']);
 
 /**
- * Build the Jekyll Site for production
- */
+* Build the Jekyll site for production.
+* Ignores drafts.
+*/
 gulp.task('build-prod', function (done) {
   var productionEnv = process.env;
   productionEnv.JEKYLL_ENV = 'production';
@@ -150,7 +156,7 @@ gulp.task('build-prod', function (done) {
 });
 
 /**
-* Push the build to a specific branch on git repo.
+* Push the build to a specific branch on git repository.
 */
 gulp.task('deploy', ['build-prod'], function() {
   return gulp.src('./_site/**/*')

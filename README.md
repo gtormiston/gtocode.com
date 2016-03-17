@@ -1,11 +1,11 @@
 # Jekyll Babel Starter Kit
-This is a boilerplate for static Jekyll sites using gulp.
+This is a boilerplate for static Jekyll sites with gulp for automation.
 
 It includes webpack for JS bundling and ES2015 transforms, CSS injection and auto-reload with BrowserSync, and a bunch of other useful tasks.
 
-### Dependencies
+### Pre-requisites
 - [Node.js](http://nodejs.org/)
-- [gulp](http://gulpjs.com/)
+- [Gulp](http://gulpjs.com/)
 - [Sass (3.4+)](http://sass-lang.com/install)
 - [Ruby (2.0+)](https://www.ruby-lang.org)
 
@@ -13,11 +13,11 @@ It includes webpack for JS bundling and ES2015 transforms, CSS injection and aut
 1. Install dependencies listed above
 2. Clone the project, then `cd` into the directory
 3. Run `make` to create the necessary directory structure
-4. Run `bundle && npm install` to install other dependencies
+4. Run `bundle && npm install` to install Jekyll & other dependencies
 5. Run `gulp` to start the file watching!
 
 ### Writing Posts
-To add new drafts, simply add a file in the `posts/_drafts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter at the top:
+To add new drafts, simply add a file in the `posts/_drafts` directory that follows the naming convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter:
 
     ---
     layout: post
@@ -29,16 +29,18 @@ To add new drafts, simply add a file in the `posts/_drafts` directory that follo
 Once you're ready to publish this draft, move the file to `posts/_posts`.
 
 ### Creating Pages
-Create new pages in the root directory (or pretty much any subdirectory). The filename will form part of the URL. Front matter example:
+Create new pages in the root directory (or pretty much any subdirectory). The filename will form part of the URL.
+
+Pages will need front matter as well, for example:
 
     ---
     layout: default
-    title: Posts
-    permalink: /posts/
+    title: Example Page
+    permalink: /examples/
     nav: true
     ---
 
-When `nav` is set to `true`, the page will appear in the top navigation. Easy.
+Only pages with `nav` set to `true` will appear in the top navigation. Easy.
 
 ### Deployment
 This is automatically ready to deploy, so long as `gulp` has been running during development — otherwise use `jekyll build`.

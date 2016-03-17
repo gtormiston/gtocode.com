@@ -17,12 +17,6 @@ figure {
 figure > img {
   display: block;
   border-radius: 4px;
-
-  &.xl {
-    width: 140%;
-    margin-left: -20%;
-    max-width: 140%;
-  }
 }
 
 figcaption {

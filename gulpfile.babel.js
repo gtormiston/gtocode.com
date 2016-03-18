@@ -4,7 +4,7 @@ import sass from 'gulp-sass';
 import prefix from 'gulp-autoprefixer';
 import cp from 'child_process';
 import rename from 'gulp-rename';
-import minifyCSS from 'gulp-minify-css';
+import cleanCSS from 'gulp-clean-css';
 import uglify from 'gulp-uglify';
 import ghPages from 'gulp-gh-pages';
 import imagemin from 'gulp-imagemin';
@@ -28,7 +28,7 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('css'))
     .pipe(gulp.dest('_site/css'))
     .pipe(reload({stream:true}))
-    .pipe(minifyCSS({keepBreaks: false, keepSpecialComments:true}))
+    .pipe(cleanCSS())
     .pipe(rename('main.min.css'))
     .pipe(gulp.dest('css'))
     .pipe(gulp.dest('_site/css'));

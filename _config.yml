@@ -9,9 +9,9 @@
 title: "Reticulating Splines"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
-twitter_username: vannio
-github_username: vannio
-linkedin_username: vannio
+twitter_username: gtormiston
+github_username: gtormiston
+linkedin_username: grahamormiston
 
 # Build settings
 markdown: kramdown

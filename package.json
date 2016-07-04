@@ -12,5 +12,23 @@
     "gulp-sass": "^2.1.0",
     "gulp-uglify": "^1.5.1",
     "webpack-stream": "^3.1.0"
-  }
+  },
+  "name": "exit",
+  "description": "This is a boilerplate for static Jekyll sites with gulp for automation.",
+  "version": "1.0.0",
+  "main": "gulpfile.babel.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vannio/Jekyll-babel-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vannio/Jekyll-babel-starter/issues"
+  },
+  "homepage": "https://github.com/vannio/Jekyll-babel-starter#readme"
 }
